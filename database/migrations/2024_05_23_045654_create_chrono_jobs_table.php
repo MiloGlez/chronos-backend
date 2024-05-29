@@ -19,12 +19,6 @@ return new class extends Migration
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
 
-        // Inserta algunos registros
-        DB::table('chrono_jobs')->insert([
-            ['name' => 'gerente'],
-            ['name' => 'asesor'],
-            ['name' => 'contador'],
-        ]);
     }
 
     /**
