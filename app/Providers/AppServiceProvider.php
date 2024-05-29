@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repository\Auth\Interfaces\AuthRepositoryInterface;
+use App\Repository\Employee\EloquentAuthRepository;
 use App\Repository\Job\EloquentJobRepository;
 use App\Repository\Job\Interfaces\JobRepositoryInterface;
 
@@ -16,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(JobRepositoryInterface::class, EloquentJobRepository::class);
+        $this->app->bind(AuthRepositoryInterface::class, EloquentAuthRepository::class);
         
     }
 
