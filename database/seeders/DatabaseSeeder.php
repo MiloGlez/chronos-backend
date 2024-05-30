@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             ChronoJobsTableSeeder::class,
             ChronoProfilesTableSeeder::class,
             ChronoEmployeesTableSeeder::class,
+            ChronoStatusesTableSeeder::class,
         ]);
     }
 }

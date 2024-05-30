@@ -10,10 +10,11 @@ class ChronoStatus extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'chrono_status';
+    protected $table = 'chrono_statuses';
 
     protected $fillable = [
         'description',
+        'name'
     ];
 
     protected $hidden = [];
