@@ -19,10 +19,10 @@ Route::prefix('stops')->group(function () {
     Route::get('/', GetAllStopController::class);
 });
 
+
 Route::prefix('statuses')->group(function () {
     Route::get('/', GetAllStatusController::class);
 });
-
 
 // Rutas de autenticación
 Route::post('/login', [LoginController::class, 'login']);
