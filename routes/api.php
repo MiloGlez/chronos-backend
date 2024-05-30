@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Job\GetAllJobController;
 use App\Http\Controllers\Stop\GetAllStopController;
+use App\Http\Controllers\Status\GetAllStatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,11 @@ Route::prefix('jobs')->group(function () {
 
 Route::prefix('stops')->group(function () {
     Route::get('/', GetAllStopController::class);
+});
+
+
+Route::prefix('statuses')->group(function () {
+    Route::get('/', GetAllStatusController::class);
 });
 
 // Rutas de autenticación
