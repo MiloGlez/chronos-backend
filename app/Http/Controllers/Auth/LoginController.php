@@ -19,23 +19,28 @@ class LoginController extends Controller
     }
 
     public function login(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
-
-        $user = $this->authRepository->attemptLogin($credentials['email'], $credentials['password']);
-
-        if ($user) {
-            // Genera un token para el usuario
-            $token = JWTAuth::fromUser($user);
-
-            // Devuelve el token al cliente
-            return response()->json([
-                'success' => true,
-                'message' => 'Inicio de sesión exitoso',
-                'token' => $token
-            ]);
-        }
-
-        return $this->responseFail([], 'Las credenciales proporcionadas no coinciden con nuestros registros.', Response::HTTP_UNAUTHORIZED);
+{
+    // Asegúrate de que 'email' y 'password' están presentes en la solicitud
+    if (!$request->filled('email') || !$request->filled('password')) {
+        return response()->json(['error' => 'Faltan credenciales'], 400);
     }
+
+    $email = $request->post('email');
+    $password = $request->post('password');
+    $user = $this->authRepository->attemptLogin($email, $password);
+
+    if ($user) {
+        $token = JWTAuth::fromUser($user);
+        return response()->json([
+            'success' => true,
+            'message' => 'Inicio de sesión exitoso',
+            'token' => $token
+        ]);
+    }
+
+    return $this->responseFail([], 'Las credenciales proporcionadas no coinciden con nuestros registros.', Response::HTTP_UNAUTHORIZED);
 }
+
+}
+
+
