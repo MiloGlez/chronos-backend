@@ -6,7 +6,8 @@ use App\Repository\Auth\Interfaces\AuthRepositoryInterface;
 use App\Repository\Employee\EloquentAuthRepository;
 use App\Repository\Job\EloquentJobRepository;
 use App\Repository\Job\Interfaces\JobRepositoryInterface;
-
+use App\Repository\Stop\EloquentStopRepository;
+use App\Repository\Stop\Interfaces\StopRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -19,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(JobRepositoryInterface::class, EloquentJobRepository::class);
         $this->app->bind(AuthRepositoryInterface::class, EloquentAuthRepository::class);
+        $this->app->bind(StopRepositoryInterface::class, EloquentStopRepository::class);
         
     }
 
