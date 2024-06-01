@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('employee_id')->references('id')->on('chrono_employees');
             $table->foreignId('status_id')->references('id')->on('chrono_statuses');
             $table->datetime('start_date');
-            $table->datetime('end_date');
+            $table->datetime('end_date')->nullable();
             $table->softDeletes();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

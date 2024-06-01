@@ -14,4 +14,15 @@ class EloquentStopRepository implements StopRepositoryInterface
     {
         return ChronoStop::create($data);
     }
+    
+    public function update($id, $data)
+    {
+        return ChronoStop::find($id)->update($data);
+    }
+
+    public function getById($id)
+    {
+        return ChronoStop::find($id);
+    }
+    
 }
