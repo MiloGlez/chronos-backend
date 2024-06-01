@@ -7,6 +7,7 @@ use App\Http\Controllers\Stop\GetAllStopController;
 use App\Http\Controllers\Status\GetAllStatusController;
 use App\Http\Controllers\Stop\CreateStopController;
 use App\Http\Controllers\Time\CreateTimeController;
+use App\Http\Controllers\Time\UpdateTimeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,8 @@ Route::prefix('stops')->group(function () {
 
 Route::prefix('times')->group(function () {    
     Route::post('/create', CreateTimeController::class);
+    Route::post('/update/{id}', UpdateTimeController::class);
+
 });
 
 

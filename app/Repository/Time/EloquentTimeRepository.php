@@ -10,4 +10,16 @@ class EloquentTimeRepository implements TimeRepositoryInterface
     {
         return ChronoTime::create($data);
     }
+
+    public function update($id, $data)
+    {
+        return ChronoTime::find($id)->update($data);
+    }
+
+    public function getById($id)
+    {
+        return ChronoTime::find($id);
+    }
+
+    
 }

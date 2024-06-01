@@ -5,6 +5,7 @@ interface TimeRepositoryInterface
 {
     
     public function create($data);
+    public function update($id, $data);
 
 }
 
