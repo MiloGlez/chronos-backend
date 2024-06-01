@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Stop\UpdateStopController;
 use App\Http\Controllers\Job\GetAllJobController;
 use App\Http\Controllers\Stop\GetAllStopController;
 use App\Http\Controllers\Status\GetAllStatusController;
@@ -19,6 +20,7 @@ Route::prefix('jobs')->group(function () {
 Route::prefix('stops')->group(function () {
     Route::get('/', GetAllStopController::class);
     Route::post('/create', CreateStopController::class);
+    Route::post('/update/{id}', UpdateStopController::class);
 });
 
 
