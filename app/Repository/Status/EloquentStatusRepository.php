@@ -9,5 +9,7 @@ class EloquentStatusRepository implements StatusRepositoryInterface
     public function getAll()
     {
         return ChronoStatus::all();    
-    }
+    }    
+    
+
 }

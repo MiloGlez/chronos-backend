@@ -10,4 +10,8 @@ class EloquentStopRepository implements StopRepositoryInterface
     {
         return ChronoStop::all();    
     }
+    public function create($data)
+    {
+        return ChronoStop::create($data);
+    }
 }
