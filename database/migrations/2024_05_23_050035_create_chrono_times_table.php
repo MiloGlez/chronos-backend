@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('chrono_times', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->datetime('date_of_entry');
-            $table->datetime('departure_date');
+            $table->datetime('departure_date')->nullable();
             $table->foreignId('employee_id')->references('id')->on('chrono_employees');
-            $table->foreignId('stop_id')->references('id')->on('chrono_stops');
-            $table->text('observation', 255);
+            $table->foreignId('stop_id')->nullable()->references('id')->on('chrono_stops');
+            $table->text('observation', 255)->nullable();
             $table->softDeletes();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

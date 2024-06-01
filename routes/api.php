@@ -5,6 +5,7 @@ use App\Http\Controllers\Job\GetAllJobController;
 use App\Http\Controllers\Stop\GetAllStopController;
 use App\Http\Controllers\Status\GetAllStatusController;
 use App\Http\Controllers\Stop\CreateStopController;
+use App\Http\Controllers\Time\CreateTimeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,10 @@ Route::prefix('jobs')->group(function () {
 Route::prefix('stops')->group(function () {
     Route::get('/', GetAllStopController::class);
     Route::post('/create', CreateStopController::class);
+});
+
+Route::prefix('times')->group(function () {    
+    Route::post('/create', CreateTimeController::class);
 });
 
 
